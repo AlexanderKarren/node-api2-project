@@ -69,8 +69,8 @@ A Comment in the database has the following structure:
 - [ ] Add the code necessary to implement the endpoints listed below.
   - [ ] POST blogpost
   - [ ] POST comment
-  - [ ] GET blogposts
-  - [ ] GET individual blogpost
+  - [x] GET blogposts
+  - [x] GET individual blogpost
   - [ ] GET all comments for individual blogpost
   - [ ] DELETE blogpost
   - [ ] PUT update blogpost
@@ -94,17 +94,17 @@ Configure the API to handle to the following routes:
 
 When the client makes a `POST` request to `/api/posts`:
 
-- [ ] If the request body is missing the `title` or `contents` property:
+- [x] If the request body is missing the `title` or `contents` property:
 
-  - [ ] cancel the request.
-  - [ ] respond with HTTP status code `400` (Bad Request).
-  - [ ] return the following JSON response: `{ errorMessage: "Please provide title and contents for the post." }`.
+  - [x] cancel the request.
+  - [x] respond with HTTP status code `400` (Bad Request).
+  - [x] return the following JSON response: `{ errorMessage: "Please provide title and contents for the post." }`.
 
-- [ ] If the information about the _post_ is valid:
+- [x] If the information about the _post_ is valid:
 
-  - [ ] save the new _post_ the the database.
-  - [ ] return HTTP status code `201` (Created).
-  - [ ] return the newly created _post_.
+  - [x] save the new _post_ the the database.
+  - [x] return HTTP status code `201` (Created).
+  - [x] return the newly created _post_.
 
 - [ ] If there's an error while saving the _post_:
   - [ ] cancel the request.
@@ -137,22 +137,22 @@ When the client makes a `POST` request to `/api/posts/:id/comments`:
 
 When the client makes a `GET` request to `/api/posts`:
 
-- [ ] If there's an error in retrieving the _posts_ from the database:
-  - [ ] cancel the request.
-  - [ ] respond with HTTP status code `500`.
-  - [ ] return the following JSON object: `{ error: "The posts information could not be retrieved." }`.
+- [x] If there's an error in retrieving the _posts_ from the database:
+  - [x] cancel the request.
+  - [x] respond with HTTP status code `500`.
+  - [x] return the following JSON object: `{ error: "The posts information could not be retrieved." }`.
 
 When the client makes a `GET` request to `/api/posts/:id`:
 
-- [ ] If the _post_ with the specified `id` is not found:
+- [x] If the _post_ with the specified `id` is not found:
 
-  - [ ] return HTTP status code `404` (Not Found).
-  - [ ] return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
+  - [x] return HTTP status code `404` (Not Found).
+  - [x] return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
 
-- [ ] If there's an error in retrieving the _post_ from the database:
-  - [ ] cancel the request.
-  - [ ] respond with HTTP status code `500`.
-  - [ ] return the following JSON object: `{ error: "The post information could not be retrieved." }`.
+- [x] If there's an error in retrieving the _post_ from the database:
+  - [x] cancel the request.
+  - [x] respond with HTTP status code `500`.
+  - [x] return the following JSON object: `{ error: "The post information could not be retrieved." }`.
 
 When the client makes a `GET` request to `/api/posts/:id/comments`:
 
