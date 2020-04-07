@@ -35,8 +35,15 @@ router.post("/", (req, res) => {
 })
 
 router.delete("/:id", (req, res) => {
+    let postToDelete = null;
+    Blogs.findById(req.params.id).then(response => postToDelete = response[0])
+    .catch(error => res.status(404).json({ errorMessage: `Could not find post with id ${req.params.id}` }))
     Blogs.remove(req.params.id).then(response => {
-
+        res.status(200).json(postToDelete);
+    })
+    .catch(error => res.status(404).json({ errorMessage: `Could not find post with id ${req.params.id}` }))
+    .catch(error => {
+        res.status(500).json({ errorMessage: "The post could not be removed"})
     })
 })
 
