@@ -1,0 +1,19 @@
+.expanded-post {
+    background-color:#FAFAFA;
+    width:90%;
+    border-radius:2px;
+    color:black;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.expanded-post h3 {
+    width:90%;
+    border-bottom:1px solid black;
+}
+
+.expanded-post span {
+    font-weight:bold;
+    margin-right:10px;
+}
