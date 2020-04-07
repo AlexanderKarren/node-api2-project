@@ -61,4 +61,13 @@ router.put("/:id", (req, res) => {
     .catch(error => res.status(500).json({ errorMessage: "The post could not be modified"}))
 })
 
+router.get("/:id/comments", (req, res) => {
+    Blogs.findPostComments(req.params.id).then(response => {
+        res.status(200).json(response);
+    })
+    .catch(error => {
+        res.status(500).json({ errorMessage: "Could not access database" })
+    })
+})
+
 module.exports = router;
