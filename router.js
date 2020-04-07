@@ -70,4 +70,24 @@ router.get("/:id/comments", (req, res) => {
     })
 })
 
+router.post("/:id/comments", (req, res) => {
+    let commentToInsert = null;
+    Blogs.findById(req.params.id).then(findRes => {
+        commentToInsert = {
+        ...req.body,
+        post_id: parseInt(req.params.id),
+        }
+        Blogs.insertComment(commentToInsert).then(insertRes => {
+            console.log(commentToInsert);
+            res.status(200).json({
+                id: insertRes.id,
+                ...commentToInsert,
+                post: findRes[0].title
+            });
+        })
+        .catch(error => res.status(500).json({ errorMessage: "Could not access database" }))
+    })
+    .catch(error => res.status(404).json({ errorMessage: `Could not find post with id ${req.params.id}` }))
+})
+
 module.exports = router;
