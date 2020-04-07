@@ -47,4 +47,18 @@ router.delete("/:id", (req, res) => {
     })
 })
 
+router.put("/:id", (req, res) => {
+    let postToEdit = null;
+    Blogs.findById(req.params.id).then(response => postToEdit = {
+        ...response[0],
+        ...req.body
+    })
+    .catch(error => res.status(404).json({ errorMessage: `Could not find post with id ${req.params.id}` }))
+    Blogs.update(req.params.id, req.body).then(response => {
+        if (response) res.status(200).json(postToEdit);
+        else res.status(404).json({ errorMessage: `Could not find post with id ${req.params.id}` });
+    })
+    .catch(error => res.status(500).json({ errorMessage: "The post could not be modified"}))
+})
+
 module.exports = router;
